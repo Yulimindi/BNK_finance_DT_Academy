@@ -1,4 +1,4 @@
-package d1018;
+package d0108;
 
 // 계산기 add sub mul div 파일 분리 / 실행 클래스 있음 그건 UI 담당(출력문, 사용자입력) / calculater라는 클래스 만들어서
 // 계산 담당 클래스

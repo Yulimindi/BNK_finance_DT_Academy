@@ -1,35 +1,9 @@
-package d1018;
+package d0108;
 
 import java.util.Scanner;
 
-public class Member_Main {
-
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		Member_Save ms = new Member_Save();
-		while(true) {
-			System.out.println("환영합니다. 무엇을 하시겠습니까?");
-			System.out.println("1 : 회원가입, 2 : 회원조회, 3 : 종료");
-			int choose = sc.nextInt();
-			
-			if(choose == 1) {
-				signUp(ms);
-			} else if(choose == 2) {
-				ms.check();
-			} else if (choose == 3) {
-				System.out.println("프로그램을 종료합니다.");
-				break;
-			} else {
-				System.out.println("제대로 입력하세요.");
-			}
-			
-		}
-
-	}
-	
-	public static void signUp(Member_Save ms) {
+public class Member_SignUp {
+	static void signUp(Member_Save ms) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("회원가입을 시작합니다.");
 		
@@ -56,5 +30,4 @@ public class Member_Main {
 		
 		System.out.println("회원가입이 완료되었습니다!");
 	}
-
 }

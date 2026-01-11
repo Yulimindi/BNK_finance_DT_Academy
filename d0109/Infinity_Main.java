@@ -1,4 +1,4 @@
-package D0109;
+package d0109;
 
 public class Infinity_Main {
 

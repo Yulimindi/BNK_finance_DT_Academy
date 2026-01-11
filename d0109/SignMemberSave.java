@@ -1,4 +1,4 @@
-package D0109;
+package d0109;
 
 // 회원 목록 저장
 public class SignMemberSave {

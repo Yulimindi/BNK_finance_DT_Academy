@@ -1,4 +1,4 @@
-package D0109;
+package d0109;
 
 import java.util.Scanner;
 
@@ -34,7 +34,7 @@ public class VendingMachine_Main {
 					System.out.println("사용할 수 없는 기능입니다.");
 				}
 			} else if (in == 3) {
-				System.out.println("나는 지금 " + vu.money + "원을 가지고 있다...");
+				vu.checkMoney();
 			} else if (in == 4) {
 				System.out.println("자판기에서 멀어진다...");
 				break;

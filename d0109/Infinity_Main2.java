@@ -1,4 +1,4 @@
-package D0109;
+package d0109;
 
 public class Infinity_Main2 {
 	// 배열의 값 수정, 삭제 하는 기능 : 중간 데이터를 삭제하면 뒤에 데이터들이 하나씩 떙겨져야겠지 배열 크기 줄일 필요는 없음

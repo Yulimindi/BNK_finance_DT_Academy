@@ -1,4 +1,4 @@
-package D0109;
+package d0109;
 
 import java.util.Scanner;
 

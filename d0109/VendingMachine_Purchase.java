@@ -11,17 +11,25 @@ public class VendingMachine_Purchase {
 	void insertMoney(VendingMachine_DrinkInfo vdi, VendingMachine_User vu) { // 1. 돈 넣기
 		vdi.showArr();
 		while(true) {
-			System.out.println("자판기에 얼마를 넣으시겠습니까?");
+			System.out.println("자판기에 얼마를 넣으시겠습니까? (돈이 없을 경우 0을 입력해주세요.) : ");
 			m = sc.nextInt();
 			sc.nextLine();
 			if(m > vu.money) {
 				System.out.println("가진 돈이 부족합니다. " + vu.money + "원 있습니다.");
+			} else if(m == 0) {
+				goMain();
+				break;
 			} else {
 				vu.money -= m;
+				purchase(vdi, vu);
 				break;
 			}
 		}
-		purchase(vdi, vu);
+		
+	}
+	
+	void goMain() {
+		System.out.println("초기 화면으로 돌아갑니다.");
 	}
 	
 	

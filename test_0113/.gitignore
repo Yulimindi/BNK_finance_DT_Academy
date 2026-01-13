@@ -1,0 +1,10 @@
+/PrinterUser.class
+/Printable.class
+/HpPrinter.class
+/CanonPrinter.class
+/PrinterFactory.class
+/MultiFunctionPrinter.class
+/Scanable.class
+/Copyable.class
+/MultiFunctionable.class
+/NewPrinter.class

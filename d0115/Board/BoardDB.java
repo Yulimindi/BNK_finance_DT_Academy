@@ -6,7 +6,6 @@ public class BoardDB {
 	ArrayList<Board> list = new ArrayList<>();
 	Board board;
 
-	
 	void create(Board b) {
 		list.add(b);
 		Board.num++;
@@ -39,6 +38,5 @@ public class BoardDB {
 	void deleteBoard(int index) {
 		list.remove(index);
 	}
-	
 	
 }

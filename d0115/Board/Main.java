@@ -31,8 +31,6 @@ public class Main {
 		bdb.deleteBoard(3);
 		bdb.showBoardList();
 		
-		
-		
 	}
 
 }

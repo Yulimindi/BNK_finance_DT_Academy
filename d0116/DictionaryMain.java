@@ -60,6 +60,7 @@ public class DictionaryMain {
 				String word = sc.nextLine();
 				
 				d.delete(word);
+				
 			} else if(choose == 3) {
 				
 				d.get();

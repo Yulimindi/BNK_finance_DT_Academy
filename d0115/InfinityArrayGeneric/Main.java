@@ -20,11 +20,11 @@ public class Main {
 		Integer b = 2;
 		Integer c = 4;
 		
+		i.add(4);
 		i.add(a);
 		i.add(a);
 		i.add(a);
-		i.add(a);
-		i.add(a);
+		
 		i.set(1, c);
 		i.showArr();
 		// i.add2(2, c);

@@ -17,7 +17,7 @@ enum Day {
 			System.out.println("화요일은 출근!");
 		}
 	}, WENDSDAY {
-		@Override
+		@Override 
 		void print() {
 			System.out.println("수요일은 출근!");
 		}
@@ -56,6 +56,8 @@ public class Practice {
 		System.out.println(c.check(5));
 		
 		Day.MONDAY.print();
+		
+		
 
 	}
 

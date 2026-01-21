@@ -9,7 +9,7 @@ public class OracleSelectTest {
 
 	public static void main(String[] args) throws Exception { // 예외처리를 jvm으로 뺌
 		
-		final String url = "jdbc:oracle:thin:@localhost:1521/testdb";
+		final String url = "jdbc:oracle:thin:@//localhost:1521/testdb";
 		final String user = "green";
 		final String pw = "1234";
 		

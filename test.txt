@@ -1,2 +1,0 @@
-Hello Java! FileWriter 예제입니댕 
-끝~

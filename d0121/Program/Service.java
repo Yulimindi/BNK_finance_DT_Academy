@@ -1,5 +1,7 @@
 package d0121.Program;
 
+import java.util.ArrayList;
+
 public class Service {
 	
 	// 서비스 클래스에 데이터 유효성 검사 같은게 들어갈 수 있대용
@@ -27,8 +29,22 @@ public class Service {
 	}
 	
 	// 회원 조회
-	public void inquiry() throws Exception {
-		db.inquiry();
+	public void inquiry(Member m) throws Exception {
+		db.inquiry(m);
+	}
+	
+	public ArrayList<Member> adInquiry() throws Exception {
+		return db.adInquiry();
+	}
+	
+	// 탈퇴 (회원용)
+	public boolean resignation(Member m) throws Exception {
+		return db.resignation(m);
+	}
+	
+	// 탈퇴 관리 (관리자용)
+	public boolean adResignation() throws Exception {
+		return db.adResignation();
 	}
 	
 }

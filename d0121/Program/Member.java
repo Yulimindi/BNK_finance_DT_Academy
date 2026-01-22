@@ -5,8 +5,19 @@ public class Member {
 	private String password;
 	private String name;
 	
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	public Member(String id) {
+		this.id = id;
+	}
 	
+	public Member(String id, String password, String name) {
+		this.id = id;
+		this.password = password;
+		this.name = name;
+	}
 	
 	public void addMember(String id, String password, String name, Service s) throws Exception {
 		

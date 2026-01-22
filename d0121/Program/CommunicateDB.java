@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CommunicateDB {
@@ -11,6 +12,7 @@ public class CommunicateDB {
 	private final String url = "jdbc:oracle:thin:@//localhost:1521/testdb";
 	private final String user = "green";
 	private final String password = "1234";
+	
 	Connection con;
 	Scanner sc = new Scanner(System.in);
 	
@@ -125,14 +127,82 @@ public class CommunicateDB {
 		
 	}
 	
-	void inquiry() throws Exception {
-		Connection con = DriverManager.getConnection(url, user, password);
-		PreparedStatement stmt = con.prepareStatement("select name from program");
+	// 사용자 전용 회원 조회
+	void inquiry(Member m) throws Exception {
+		PreparedStatement stmt = con.prepareStatement("select * from program where id = ?");
+		stmt.setString(1, m.getId());
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next()) {
+			System.out.println("아이디 : " + rs.getString("id"));
+			System.out.println("이름 : " + rs.getString("name"));
+			System.out.println("비밀번호 : " + rs.getString("pw"));
+		}
+	}
+	
+	// 관리자 전용 회원 조회
+	ArrayList<Member> adInquiry() throws Exception {
+		PreparedStatement stmt = con.prepareStatement("select * from program");
 		ResultSet rs = stmt.executeQuery();
 		
+		ArrayList<Member> arr = new ArrayList<>();
+		
+		Member m;
+		
 		while(rs.next()) {
-			System.out.println("이름 : " + rs.getString("name"));
+			m = new Member(rs.getString("id"), rs.getString("pw"), rs.getString("name"));
+			arr.add(m);
 		}
+		
+		return arr;
+		
+	}
+	
+	// 사용자 전용 회원 탈퇴
+	boolean resignation(Member m) throws Exception {
+		PreparedStatement stmt = con.prepareStatement("insert into resignation (id) values (?)");
+		stmt.setString(1, m.getId());
+		stmt.execute();
+		
+		return true; 
+	}
+	
+	// 관리자 전용 회원 탈퇴
+	boolean adResignation() throws Exception {
+		
+		System.out.println("탈퇴 메서드 진입");
+		PreparedStatement stmt = con.prepareStatement("select id from resignation");
+		ResultSet rs = stmt.executeQuery();
+		
+		ArrayList<Member> arr = new ArrayList<>();
+		
+		while(rs.next()) {
+			arr.add(new Member(rs.getString("id")));
+		}
+		
+		boolean b = false;
+		
+		stmt = con.prepareStatement("delete from program where id = ?");
+		
+		for(Member m : arr) {
+			System.out.println("탈퇴 중");
+			stmt.setString(1, m.getId());
+			stmt.execute();
+		}
+		
+		System.out.println("탈퇴 완료");
+
+		System.out.println("탈퇴 종료 후 체크");
+		stmt = con.prepareStatement("select id from resignation");
+		rs = stmt.executeQuery();
+		
+		
+		if(rs.next()) {
+			
+		} else {
+			b = true;
+		}
+		
+		return b; 
 	}
 	
 }

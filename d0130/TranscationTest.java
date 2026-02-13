@@ -23,8 +23,6 @@ public class TranscationTest {
 			con = DriverManager.getConnection(url, uid, upw);
 			con.setAutoCommit(false); // AUTO COMMIT 해제
 			
-
-			
 			// 1. A 계좌 출금
 			String withdrawSql = "update account set balance = balance - ? where acid = ?";
 			pstmt = con.prepareStatement(withdrawSql);
